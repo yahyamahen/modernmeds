@@ -21,6 +21,8 @@ global $conn;
 
 <body>
    <?php require_once "navbar.php" ?>
+   <?php require_once "cart_floating_button.php" ?>
+
    <div class="section_w440 margin_r_20" style="position: fixed; bottom:0; top:50px;">
       <div class=""><span></span></div>
       <div class="sub_content" style="margin-top: 2rem;">
@@ -42,7 +44,7 @@ global $conn;
       </form>
 
       <div class="cleaner_h30"></div>
-      <div class="section_w940" style="margin: auto;">
+      <div class="section_w940" style="margin: auto; padding-bottom:99em">
          <?php foreach ($produk as $pr) : ?>
             <div class="section_w210 margin_r_20" style="border-radius: 0.2rem; padding: 1rem 5px 1rem 5px; margin:0.7rem; box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2)">
                <div class="sub_content">

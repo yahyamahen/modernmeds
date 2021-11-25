@@ -868,11 +868,8 @@ h2 {
    border: none;
 }
 
-.floating_button{
+.button{
    color: white;
-   position: fixed;
-   bottom: 7%;
-   right: 5%;
    font-size: 12pt;
    border-radius: 100em;
    font-weight: 900;
@@ -888,6 +885,12 @@ h2 {
    text-decoration: none;
 }
 
-.floating_button:hover{
+.button:hover{
    background-color: #0089bf;
+}
+
+.floating_button {
+   position: fixed;
+   bottom: 7%;
+   right: 5%;
 }
