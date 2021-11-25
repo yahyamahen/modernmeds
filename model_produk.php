@@ -2,7 +2,10 @@
 $daftar_kategori = query("SELECT kategori FROM produk GROUP BY kategori;");
 $produk_random = query("SELECT * FROM produk ORDER BY RAND() LIMIT 10");
 $produk_random_3 = query("SELECT * FROM produk WHERE stok_produk != 0 ORDER BY RAND() LIMIT 3");
-$total = query("SELECT SUM(produk.harga_produk * cart.total_pcs) AS total FROM produk, cart WHERE cart.id_produk = produk.id_produk AND cart.username = '$username';");
+
+if (isset($_SESSION['user'])) {
+   $total = query("SELECT SUM(produk.harga_produk * cart.total_pcs) AS total FROM produk, cart WHERE cart.id_produk = produk.id_produk AND cart.username = '$username';");
+}
 
 if (isset($_GET['kategori'])) {
    $kategori = $_GET['kategori'];
