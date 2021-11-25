@@ -210,7 +210,8 @@ function update_produk($data)
    $key = $data["id_produk"];
 
    $id_produk = htmlspecialchars($data["id_produk"]);
-   $nama_produk = htmlspecialchars($data["nama_produk"]);
+   $nama_produk_baru = htmlspecialchars($data["nama_produk"]);
+   $nama_produk_lama = htmlspecialchars($data["nama_produk_lama"]);
    $kategori = htmlspecialchars($data["kategori"]);
    $deskripsi_produk = htmlspecialchars($data["deskripsi_produk"]);
    $harga_produk = htmlspecialchars($data["harga_produk"]);
@@ -218,12 +219,24 @@ function update_produk($data)
    $gambarLama = htmlspecialchars($data["gambarLama"]);
 
    if ($_FILES['gambar']['error'] === 4) {
-      $gambar = $gambarLama;
+      if ($nama_produk_baru == $nama_produk_lama) {
+         $gambar = $gambarLama;
+      } else {
+         mkdir("images/$nama_produk_baru", 0777, true);
+         copy("images/$nama_produk_lama/$gambarLama", "images/$nama_produk_baru/$gambarLama");
+         unlink("images/$nama_produk_lama/$gambarLama");
+         $gambar = $gambarLama;
+      }
    } else {
-      $gambar = upload();
+      if ($nama_produk_baru == $nama_produk_lama) {
+         $gambar = upload();
+      } else {
+         $gambar = upload();
+         delete_directory("images/$nama_produk_lama/$gambarLama");
+      }
    }
 
-   $query = "UPDATE produk SET id_produk = '$id_produk', nama_produk = '$nama_produk' , kategori = '$kategori' , deskripsi_produk = '$deskripsi_produk' , harga_produk = '$harga_produk' , stok_produk = '$stok_produk' , gambar = '$gambar' WHERE id_produk = '$key';";
+   $query = "UPDATE produk SET id_produk = '$id_produk', nama_produk = '$nama_produk_baru' , kategori = '$kategori' , deskripsi_produk = '$deskripsi_produk' , harga_produk = '$harga_produk' , stok_produk = '$stok_produk' , gambar = '$gambar' WHERE id_produk = '$key';";
 
    mysqli_query($conn, $query);
 
@@ -234,11 +247,31 @@ function update_produk($data)
 function delete_produk($id_produk)
 {
    global $conn;
+
+   $result = query("SELECT * FROM produk WHERE id_produk = '$id_produk';")[0];
+   $nama_produk = $result['nama_produk'];
+
+   delete_directory("images/$nama_produk");
+
    $query = "DELETE FROM cart WHERE id_produk = $id_produk;";
    mysqli_query($conn, $query);
    $query = "DELETE FROM pemesanan WHERE id_produk = $id_produk;";
    mysqli_query($conn, $query);
    $query = "DELETE FROM produk WHERE id_produk = $id_produk;";
    mysqli_query($conn, $query);
+
    return mysqli_affected_rows($conn);
+}
+
+function delete_directory($target)
+{
+   if (is_dir($target)) {
+      $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
+      foreach ($files as $file) {
+         delete_directory($file);
+      }
+      rmdir($target);
+   } elseif (is_file($target)) {
+      unlink($target);
+   }
 }

@@ -44,14 +44,21 @@ global $conn;
       </form>
 
       <div class="cleaner_h30"></div>
-      <div class="section_w940" style="margin: auto; padding-bottom:99em">
+      <div class="section_w940" style="margin: auto;">
          <?php foreach ($produk as $pr) : ?>
-            <div class="section_w210 margin_r_20" style="border-radius: 0.2rem; padding: 1rem 5px 1rem 5px; margin:0.7rem; box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2)">
+            <div class="section_w210 margin_r_20" style="height:29em; border-radius: 0.2rem; padding: 1rem 5px 1rem 5px; margin:0.7rem; box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2)">
                <div class="sub_content">
                   <img style="width: 10rem; margin-top:1em;" src="admin/images/<?= $pr['nama_produk'] ?>/<?= $pr['gambar'] ?>" alt="" />
                   <a style="font-size: 1.3em; font-weight:1000; text-decoration:none; display:block; margin-bottom:0.2em;" href="detail_produk?id_produk=<?= $pr['id_produk'] ?>"><?= $pr['nama_produk']; ?></a>
                   <span style="font-size: 1.2em;"><b>Rp. <?= number_format($pr['harga_produk'], 0, ",", "."); ?></b> </span>
-                  <p><?= $pr['deskripsi_produk']; ?></p>
+                  <style>
+                     .example::-webkit-scrollbar {
+                        display: none;
+                     }
+                  </style>
+                  <div class="example" style="height:5em; overflow: scroll;">
+                     <p style="line-height: 1.5em;"><?= $pr['deskripsi_produk']; ?></p>
+                  </div>
                   <form action="" method="post">
                      <input type="hidden" name="id_produk" id="id_produk" value="<?= $pr['id_produk']; ?>">
                      <input type="hidden" name="nama_produk" id="nama_produk" value="<?= $pr['nama_produk']; ?>">

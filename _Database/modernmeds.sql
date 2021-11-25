@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2021 at 08:48 PM
+-- Generation Time: Nov 25, 2021 at 05:12 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -41,12 +41,9 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`id`, `username`, `id_produk`, `total_pcs`) VALUES
 (43, 'yunusmail', 1, 1),
 (44, 'yunusmail', 5, 1),
-(51, 'yahyamahen', 4, 1),
-(53, 'yahyamahen', 7, 1),
-(55, 'yahyamahen', 8, 1),
-(56, 'yahyamahen', 9, 1),
-(57, 'yahyamahen', 3, 1),
-(58, 'emilliaef', 7, 1);
+(58, 'emilliaef', 7, 1),
+(64, 'yahyamahen', 3, 1),
+(65, 'yahyamahen', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -124,10 +121,12 @@ INSERT INTO `pemesanan` (`id_pemesanan`, `kode_pemesanan`, `id_user`, `username`
 (23, 'PG1649', NULL, 'yahyamahen', 8, 4, 236058, 'debit', 'yahyamahen_PG1649.pdf', '2021-10-28 18:42:10', 'Pesanan Selesai', 'Yok yok ngobat'),
 (24, 'PG1649', NULL, 'yahyamahen', 5, 2, 236058, 'debit', 'yahyamahen_PG1649.pdf', '2021-10-28 18:42:10', 'Pesanan Selesai', 'Yok yok ngobat'),
 (25, 'PG1649', NULL, 'yahyamahen', 7, 3, 236058, 'debit', 'yahyamahen_PG1649.pdf', '2021-10-28 18:42:10', 'Pesanan Selesai', 'Yok yok ngobat'),
-(26, 'PG1649', NULL, 'yahyamahen', 9, 2, 236058, 'debit', 'yahyamahen_PG1649.pdf', '2021-10-28 18:42:10', 'Pesanan Selesai', 'Yok yok ngobat'),
 (27, 'PG5439', NULL, 'yahyamahen', 8, 2, 116247, 'debit', 'yahyamahen_PG5439.pdf', '2021-11-24 13:34:24', 'Pesanan Selesai', 'Kirim cepat'),
 (28, 'PG5439', NULL, 'yahyamahen', 5, 2, 116247, 'debit', 'yahyamahen_PG5439.pdf', '2021-11-24 13:34:24', 'Pesanan Selesai', 'Kirim cepat'),
-(29, 'PG5439', NULL, 'yahyamahen', 9, 1, 116247, 'debit', 'yahyamahen_PG5439.pdf', '2021-11-24 13:34:24', 'Pesanan Selesai', 'Kirim cepat');
+(30, 'PG7170', NULL, 'yahyamahen', 4, 1, 147000, 'cash', 'yahyamahen_PG7170.pdf', '2021-11-25 02:59:31', 'Pesanan Selesai', 'Kirim Cepat Gan'),
+(31, 'PG7170', NULL, 'yahyamahen', 7, 1, 147000, 'cash', 'yahyamahen_PG7170.pdf', '2021-11-25 02:59:31', 'Pesanan Selesai', 'Kirim Cepat Gan'),
+(32, 'PG7170', NULL, 'yahyamahen', 8, 1, 147000, 'cash', 'yahyamahen_PG7170.pdf', '2021-11-25 02:59:31', 'Pesanan Selesai', 'Kirim Cepat Gan'),
+(34, 'PG7170', NULL, 'yahyamahen', 6, 2, 147000, 'cash', 'yahyamahen_PG7170.pdf', '2021-11-25 02:59:31', 'Pesanan Selesai', 'Kirim Cepat Gan');
 
 -- --------------------------------------------------------
 
@@ -153,12 +152,15 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `kategori`, `deskripsi_produk`
 (1, 'OBH Combi', 'Obat Cair', 'Obat batuk berdahak untuk dewasa', 20000, 1, '1_OBH Combi_6178a8a7bec5e.jpg'),
 (2, 'Panadol MX', 'Tablet', 'Obat sakit kepala ringan', 10000, 4, '2_Panadol MX_6178a8b9e7a30.jpeg'),
 (3, 'Mylanta Maag', 'Obat Cair', 'Obat cair mylanta, takaran minuman 2x1 sehari', 40000, 1, '_Mylanta Maag_617ad2b0e7ad2.jpg'),
-(4, 'Combantrin', 'Obat Cair', 'Obat cacing untuk semua umur', 35000, 2, '_Combantrin_617ad2eb67bee.jpg'),
+(4, 'Combantrin', 'Obat Cair', 'Obat cacing untuk semua umur', 35000, 1, '_Combantrin_617ad2eb67bee.jpg'),
 (5, 'Bodrex Extra', 'Tablet', 'Obat sakit kepala tablet, anjuran minuiman 2x1 hari', 4000, 11, 'Bodrex Extra_617ad37c4960c.jpg'),
-(6, 'CTM', 'Tablet', 'Obat gatal, membuat efek ngantuk! hatihati', 2000, 0, 'CTM_617ad3b9ec331.jpg'),
-(7, 'Mixagrip Flu', 'Tablet', 'Mixagrip Flu untuk meredakan flu, pilek dan bersin', 4000, 27, 'Mixagrip Flu_617ad4086d5d6.jpg'),
-(8, 'Paramex', 'Tablet', 'Obat sakit kepala tablet, anjuran minuiman 2x1 hari', 4000, 24, 'Paramex_617ad98b2dc6f.jpg'),
-(9, 'Paracetamol', 'Tablet', 'Obat anti nyeri dan sakit kepala', 100000, 7, 'Paracetamol_617aebef3c790.jpg');
+(6, 'CTM', 'Tablet', 'Obat gatal, membuat efek ngantuk! hatihati', 2000, 18, 'CTM_617ad3b9ec331.jpg'),
+(7, 'Mixagrip Flu', 'Tablet', 'Mixagrip Flu untuk meredakan flu, pilek dan bersin', 4000, 26, 'Mixagrip Flu_617ad4086d5d6.jpg'),
+(8, 'Paramex', 'Tablet', 'Obat sakit kepala tablet, anjuran minuiman 2x1 hari', 4000, 23, 'Paramex_617ad98b2dc6f.jpg'),
+(21, 'Enervon C-30', 'Pil', 'Vitamin untuk menguatkan metabolisme tubuh', 5000, 21, '123_619faefce0eaf.jpg'),
+(22, 'Paracetamol', 'Tablet', 'Obat anti nyeri, meredakan demam', 6000, 5, 'Paracetamol_619fafa009f15.jpg'),
+(23, 'Combantrin', 'Tablet', 'Obat Cacing Dewasa Tablet', 16000, 10, 'Combantrin_619fb2ae5fd18.jpeg'),
+(24, 'Amoxilin', 'Tablet', 'Obat anti nyeri, untuk gigi', 5000, 40, 'Amoxilin_619fb552bda0a.jpg');
 
 -- --------------------------------------------------------
 
@@ -228,19 +230,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`

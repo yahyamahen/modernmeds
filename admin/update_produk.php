@@ -46,6 +46,7 @@ if (isset($_POST["submit"])) {
       <div style="background-color: white; padding: 30px; width:50%; margin:auto;">
          <h1>Ubah Produk</h1>
          <form class="my-form" action="update_produk" method="post" enctype="multipart/form-data" style="margin-top: 1rem;">
+            <input type="hidden" name="nama_produk_lama" value="<?= $produk["nama_produk"]; ?>">
             <input type="hidden" name="gambarLama" value="<?= $produk["gambar"]; ?>">
             <input type="hidden" name="id_produk" value="<?= $produk["id_produk"]; ?>">
             <div>
