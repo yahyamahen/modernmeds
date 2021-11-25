@@ -3,7 +3,6 @@ session_start();
 require_once "function.php";
 require_once "model.php";
 require_once "../model_produk.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +75,7 @@ require_once "../model_produk.php";
                      <?php endif; ?>
                      <td align="center">
                         <a style="text-decoration: none;" href="update_produk?id_produk=<?= $pr["id_produk"]; ?>"><img src="../images/edit.png" style="width:17px;" alt=""></a>
-                        <a style="text-decoration: none;" href=" delete_produk?id_produk=<?= $pr["id_produk"]; ?>" onclick="return confirm('Yaking ingin menghapus produk?');"><img src="../images/delete.png" style="width:24px;" alt=""></a>
+                        <a style="text-decoration: none;" href="produk?delete_produk=<?= $pr["id_produk"]; ?>" onclick="return confirm('Yakin ingin menghapus produk?');"><img src="../images/delete.png" style="width:24px;" alt=""></a>
                      </td>
                   </tr>
                <?php $i++;
