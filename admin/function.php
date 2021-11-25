@@ -234,8 +234,11 @@ function update_produk($data)
 function delete_produk($id_produk)
 {
    global $conn;
+   $query = "DELETE FROM cart WHERE id_produk = $id_produk;";
+   mysqli_query($conn, $query);
+   $query = "DELETE FROM pemesanan WHERE id_produk = $id_produk;";
+   mysqli_query($conn, $query);
    $query = "DELETE FROM produk WHERE id_produk = $id_produk;";
    mysqli_query($conn, $query);
-
    return mysqli_affected_rows($conn);
 }

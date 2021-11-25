@@ -29,8 +29,9 @@ if (isset($_GET['kategori'])) {
 }
 
 if (isset($_GET['delete_produk'])) {
-   $id_produk = $_GET["delete_produk"];
-   if (delete_produk($id_produk) > 0) {
+   // $id_produk = $_GET["delete_produk"];
+
+   if (delete_produk($_GET["delete_produk"]) > 0) {
       echo
       "<script>
 		alert('Data Produk Terhapus');
@@ -39,8 +40,8 @@ if (isset($_GET['delete_produk'])) {
    } else {
       echo
       "<script>
-		alert('Data Produk Tidak Dapat Terhapus');
-	</sciprt>";
+		   alert('Data Produk Tidak Dapat Terhapus');
+	   </sciprt>";
       echo "<br> Error : " . mysqli_error($conn);
    }
 }
